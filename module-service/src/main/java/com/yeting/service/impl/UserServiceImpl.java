@@ -10,6 +10,11 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User get() {
-        return null;
+        User user = new User();
+        user.setId(1L);
+        user.setUserName("yeting");
+        user.setAge(26);
+        user.setAddress("shanghai");
+        return user;
     }
 }
