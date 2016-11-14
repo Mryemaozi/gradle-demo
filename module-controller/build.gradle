@@ -13,18 +13,19 @@ jar {
 }
 
 //清除上次的编译过的文件
-task clearPj(type:Delete){
+task clearPj(type: Delete){
     delete 'build','target'
 }
-task copyJar(type:Copy){
-    from configurations.runtime
+task copyJar(type: Copy){
+    from configurations.compile
     into ('build/libs/lib')
 }
+
 //把JAR复制到目标目录
 task release(type: Copy,dependsOn: copyJar) {
     from 'build/libs'
     into 'target'
 } 
 
-build.dependsOn release
-clean.dependsOn clearPj
+build.dependsOn(release)
+clean.dependsOn(clearPj)
